@@ -1,0 +1,321 @@
+/* --------------- FORMULARIO PUBLICAR COMENTARIOS --------------- */
+.comentario {
+    background-color: #005bcf;
+    padding: 10px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.comentario > *:nth-child(2) {
+    margin: 10px 0px;
+}
+
+.comentario > *:nth-child(3) {
+    padding: 0px 20px;
+}
+
+.comentario_textarea {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 150px;
+    min-height: 150px;
+}
+
+/* CSS SUBIR FICHERO */
+.custom-input-file {
+    background-color: #77a6ff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 auto 0;
+    min-height: 15px;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+.custom-input-file .input-file {
+    border: 10000px solid transparent;
+    cursor: pointer;
+    font-size: 10000px;
+    margin: 0;
+    opacity: 0;
+    outline: 0 none;
+    padding: 0;
+    position: absolute;
+    right: -1000px;
+    top: -1000px;
+}
+
+/* --------------- PUBLICACIONES --------------- */
+.publicaciones {
+    background-color: #005bcf;
+    padding: 10px;
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+.publicaciones > *:last-child {
+    /* Estilo para quitar margin abajo  */
+    margin-bottom: 0px;
+}
+
+.publicaciones .inner2 {
+    background-color: #cdf8ff;
+    border-radius: 10px;
+    padding: 10px;
+
+    width: 100%;
+    text-align: left;
+
+    display: grid;
+    grid-template-columns: 10% 1fr 15%;
+    grid-template-rows: 10% auto;
+    align-items: center;
+    gap: 20px;
+}
+
+.publicaciones a {
+    margin: 15px 0px;
+}
+
+/* Foto de perfil */
+.publicaciones .inner2 img {
+    width: 100%;
+    border-radius: 100px;
+}
+
+/* Nonbre usuario */
+.publicaciones .inner2 h4 {
+    margin: 0px;
+}
+
+/* Boton borrar */
+.publicaciones .inner2 .borrar {
+    color: #fff;
+    background-color: #da0000;
+    text-align: center;
+    border-radius: 20px;
+
+    align-self: start;
+}
+
+.publicaciones .inner2 .borrar:hover {
+    color: #fff;
+    background-color: #ff0000;
+}
+
+.publicaciones .inner2 .borrado {
+	color: #fff;
+    background-color: #707070;
+    text-align: center;
+    border-radius: 20px;
+
+    align-self: start;
+}
+
+/* Texto comentario */
+/* de los comentarios */
+.publicaciones .inner2 > p {
+    grid-column: span 3;
+	margin: 0px;
+}
+.publicaciones .inner2 .description {
+    grid-column: span 3;
+	border-bottom: 0;
+}
+
+/* de la publicacion */
+.publicaciones .inner2 .description:hover {
+    color: inherit !important;
+}
+
+.publicaciones .inner2 .description p {
+    margin: 0px;
+}
+
+/* likes visitas etc */
+.publication-footer {
+	background-color: #cdf8ff;
+	border-radius: 10px;
+	margin: 10px 0px;
+	color: #000;
+
+	display: grid;
+	justify-items: center;
+	grid-template-columns: repeat(4, 1fr);
+	align-items: center;
+	
+}
+
+.publication-footer p {
+	margin: 0px;
+}
+
+.publication-footer button {
+	background-color: #77a6ff;
+	color: #fff !important;
+	border-radius: 10px;
+}
+
+/* FORMULARIO COMENTARIO */
+.publicaciones form {
+	margin-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.publicaciones form > * {
+    width: 100%;
+    max-width: 100%;
+}
+
+.publicaciones form > *:last-child {
+    background-color: #1fd308;
+}
+
+.publicaciones form > *:last-child:hover {
+    background-color: #26ee0c;
+}
+
+/* ------------------------- */
+/* POPUP */
+/* ------------------------- */
+
+.overlay {
+	background: rgba(0,0,0,.3);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	visibility: hidden;
+}
+
+.overlay.active {
+	visibility: visible;
+}
+
+.popup {
+	background: #F8F8F8;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	padding: 20px;
+	text-align: center;
+	width: 600px;
+	
+	transition: .3s ease all;
+	transform: scale(0.7);
+	opacity: 0;
+}
+
+.popup .btn-cerrar-popup {
+	font-size: 16px;
+	line-height: 16px;
+	display: block;
+	text-align: right;
+	transition: .3s ease all;
+	color: #BBBBBB;
+
+    border-bottom: 0px;
+}
+
+.popup .btn-cerrar-popup:hover {
+	color: #000;
+}
+
+.popup h3 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	opacity: 0;
+}
+
+/* .popup h4 {
+	font-size: 26px;
+	font-weight: 300;
+	margin-bottom: 40px;
+	opacity: 0;
+} */
+
+.popup form .contenedor-inputs {
+	opacity: 0;
+}
+
+.popup form .contenedor-inputs input {
+	width: 100%;
+	margin-bottom: 20px;
+	height: 52px;
+	font-size: 18px;
+	line-height: 52px;
+	text-align: center;
+	border: 1px solid #BBBBBB;
+}
+
+.popup form .btn-submit {
+	padding: 0 20px;
+	height: 40px;
+	line-height: 40px;
+	border: none;
+	color: #fff;
+	background: #5E7DE3;
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+	transition: .3s ease all;
+}
+
+.popup form .btn-submit:hover {
+	background: rgba(94,125,227, .9);
+}
+
+/* ------------------------- */
+/* ANIMACIONES */
+/* ------------------------- */
+.popup.active {	transform: scale(1); opacity: 1; }
+.popup.active h3 { animation: entradaTitulo .8s ease .5s forwards; }
+.popup.active .contenedor-inputs { animation: entradaInputs 1s linear 1s forwards; }
+
+@keyframes entradaTitulo {
+	from {
+		opacity: 0;
+		transform: translateY(-25px);
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes entradaSubtitulo {
+	from {
+		opacity: 0;
+		transform: translateY(25px);
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes entradaInputs {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}

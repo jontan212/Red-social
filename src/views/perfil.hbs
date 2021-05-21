@@ -1,0 +1,69 @@
+<div id="main">
+
+    <!-- One -->
+    <section id="one">
+        <div class="image main" data-position="center">
+            <img src="/public/images/banner.png" alt="" />
+        </div>
+        <div class="container">
+            <header class="major">
+                <h2>Publicar Bulo</h2>
+            </header>
+            <!-- FORMULARIO PUBLICACIÓN -->
+            <form action="/bulo" method="POST" enctype="multipart/form-data">
+                <div class="comentario">
+                    <textarea class="comentario_textarea" name="comment" id="message"
+                        placeholder="Escribe para tu publicación" required></textarea>
+                    <div class="custom-input-file">
+                        <input type="file" name="file" id="inputGroup" class="input-file" value="">
+                        Subir imagen... <i class="fa fa-upload"></i>
+                    </div>
+                    <input type="submit" class="primary" value="Publicar">
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Three -->
+    <section id="three">
+        <div class="container">
+            <h3>Perfil Publicaciones</h3>
+            <!-- PUBLICACIONES -->
+            <div class="features">
+                <!-- PUBLICACIÓN -->
+                {{#each publication}}
+                    <article class="publicaciones">
+                        <div class="inner2">
+                            <img src="/public/images/avatar.jpg" alt="">
+                            <h4>{{userBulo.name}} <i>{{userBulo.email}}</i></h4>
+                    {{#with bulos}}
+                            {{!-- <button class="borrar" id="btn-delete" data-id="{{_id}}">Borrar</button> --}}
+                            <a href="/bulo/{{_id}}" class="description">
+                                <p> {{description}} </p>
+                            </a>
+                        </div>
+                        {{#if filename}}
+                        <a href="/bulo/{{_id}}" class="image"><img src="/public/upload/{{filename}}" alt="" /></a>
+                        {{/if}}
+                        <!-- FORMULARIO COMENTARIO -->
+                        <form action="/bulo/{{_id}}/comment" method="POST">
+                            <textarea name="comment" placeholder="Escribe tu comentario" required></textarea>
+                            <input type="submit" value="Comentar">
+                        </form>
+                    {{/with}}
+                        <!-- COMENTARIO -->
+                        {{#each comments}}
+                        <article class="publicaciones"
+                            style="background-color: #005bcf;padding: 10px;border-radius: 15px;border: solid 3px #f4f4f4;">
+                            <div class="inner2" style="background-color: #cdf8ff;border-radius: 10px;padding: 10px;">
+                                <img src="/public/images/avatar.jpg" alt="">
+                                <h4>{{userComment.name}} <i>{{userComment.email}}</i></h4>
+                                <p>{{comment.comment}}</p>
+                            </div>
+                        </article>
+                        {{/each}}
+                    </article>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>UTBH</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!-- CUSTOM CSS ORIGINAL -->
+    <link rel="stylesheet" href="/public/assets/css/main.css" />
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="/public/css/messages.css">
+</head>
+
+<body class="is-preload">
+
+    <!-- Header -->
+    <section id="header">
+        {{#if user}}
+        <header>
+            <span class="image avatar"><img src="/public/images/avatar.jpg" alt="" /></span>
+            <h1 id="logo"><a href="#">{{user.name}}</a></h1>
+        </header>
+        {{else}}
+        <header>
+            <h1 id="logo"><a href="#"></a></h1>
+        </header>
+        {{/if}}
+        <nav id="nav">
+            <ul>
+                <li><a href="#one" class="active" id="inicio">Inicio</a></li>
+                {{#if user}}
+                <li><a href="#two" id="perfil">Perfil</a></li>
+                <li><a href="#a" id="logout">logout</a></li>
+                {{else}}
+                <li><a href="#thre" id="btn-abrir-popup-login" class="btn-abrir-popup">Login</a></li>
+                <li><a href="#four" id="btn-abrir-popup" class="btn-abrir-popup">Registro</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+        {{>errors}}
+        {{>messages}}
+        <footer>
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+        </footer>
+    </section>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        {{{ body }}}
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="container">
+                <ul class="copyright">
+                    <li>&copy; Untitled. All rights reserved.</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- POPUP LOGIN -->
+    <div class="overlay" id="overlay-login">
+        <div class="popup" id="popup-login">
+            <a href="#" id="btn-cerrar-popup-login" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3>Login</h3>
+            <form action="/users/signin" method="POST">
+                <div class="contenedor-inputs">
+                    <input type="email" name="email" placeholder="Correo" required>
+                    <input type="password" placeholder="Contraseña" name="password" id="password" required>
+                </div>
+                <input type="submit" class="btn-submit" value="Login">
+            </form>
+        </div>
+    </div>
+
+    <!-- POPUP REGISTRO -->
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3>Registro</h3>
+            <form action="/users/signup" method="POST">
+                <div class="contenedor-inputs">
+                    <input type="text" name="name" placeholder="Nombre" value="{{name}}" required>
+                    <input type="email" name="email" placeholder="Correo" value="{{email}}" required>
+                    <input type="password" placeholder="Contraseña" name="password" id="password" value="{{password}}" required>
+                    <input type="password" placeholder="Confirmar Contraseña" name="confirm_password" id="confirm_password" value="{{confirm_password}}" required>
+                </div>
+                <input type="submit" class="btn-submit" value="Registrarse">
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/public/assets/js/jquery.min.js"></script>
+    <script src="/public/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/public/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/public/assets/js/browser.min.js"></script>
+    <script src="/public/assets/js/breakpoints.min.js"></script>
+    <script src="/public/assets/js/util.js"></script>
+    <script src="/public/assets/js/main.js"></script>
+
+    <!-- SCRIPTS CUSTOM -->
+    <script src="/public/js/index.js"></script>
+    <script src="/public/js/btn-like.js"></script>
+    <script src="/public/js/btn-delete.js"></script>
+    <script src="/public/js/nav.js"></script>
+</body>
+
+</html>
