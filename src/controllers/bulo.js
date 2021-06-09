@@ -55,6 +55,7 @@ ctrl.create = async (req, res) => {
             description: req.body.comment
         });
         const buloSaved = await newBulo.save();
+        req.flash('success_msg', 'Bulo creado correctamente');
         res.redirect('/bulo/' + buloSaved._id);
     }
 
